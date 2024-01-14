@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfAppVererben4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppVererben4"
+        mc:Ignorable="d"
+        Title="Spielwiese" Height="450" Width="1000">
+    <Grid  >
+        <Canvas x:Name="Spielflaeche" KeyDown="KeyDown_Tastatur" >
+            <!--Öffnendes Tag für Spielflaeche-->
+            <!--Damit in ein Canvas ein Bild eingefügt werden kann und dies verkleinert und positioniert werden kann,
+            muss es in ein Steuerelement eingefügt werden, hier canvas. die bilder sollte relativ eingefügt werden, hierzu 
+            werden sie mit RMT im Projektmappen-Explorer auf die Projektmappe, Hinzugefügen, vorhandenes Element und auswählen-->
+            <Canvas.Background  >
+                <ImageBrush ImageSource="Hintergrund.png"/>
+            </Canvas.Background>
+            <Label x:Name="Beschriftung" Content="Bakken" Height="85" Width="200" Canvas.Left="164" Canvas.Top="25" FontSize="60" Foreground="#FF950606" HorizontalAlignment="Center" FontFamily="Tempus Sans ITC" FontStretch="UltraExpanded" FontStyle="Italic" FontWeight="ExtraBlack" Opacity="0.5"/>
+            <Canvas x:Name="CanvasHole">
+                <Ellipse Width="363" Height="89" Fill="Black" Canvas.Left="9" Canvas.Top="305" ></Ellipse>
+            </Canvas>
+            <WrapPanel x:Name="Container" Width="280" Height="100" Canvas.Left="407" Canvas.Top="10">
+                <Label x:Name="LblMagier"   Height="100" Width="70" Focusable="True" MouseLeftButtonDown="LblMagier_MD"    >
+                    <Label.Background>
+                        <ImageBrush ImageSource="magier.png"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="LblMumie" Content="" Height="100" Width="70" MouseLeftButtonDown="LblMumie_MD" >
+                    <Label.Background>
+                        <ImageBrush ImageSource="mumie.png"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="LblEinstein" Content="" Height="100" Width="70" MouseLeftButtonDown="LblEinstein_MD"   >
+                    <Label.Background>
+                        <ImageBrush ImageSource="einstein.png"/>
+                    </Label.Background>
+                </Label>
+                <Label x:Name="LblBauarbeiter"  Height="100" Width="70" MouseLeftButtonDown="LblBauarbeiter_MD"   >
+                    <Label.Background>
+                        <ImageBrush ImageSource="bauarbeiter.png"/>
+                    </Label.Background>
+                </Label>
+            </WrapPanel>
+            <StackPanel Background="AntiqueWhite" Canvas.Left="892" Canvas.Top="25" >
+                <Label x:Name="Logo" Background="Transparent"  Width="90" Height="50">
+                    <Image Source="logomt.jpg" />
+                </Label>
+                <Button Content="Spielstart" Background="BlueViolet" Height="35"  Canvas.Left="862" Canvas.Top="30" Width="80" Click="Spielstart"/>
+                <Label x:Name="LblZeitSpielerBeschriftung" Width="80" Background="Gray" Content="Zeit" Height="30" Canvas.Left="30" Canvas.Top="163" />
+                <Label x:Name="LblZeitSpieler" Width="80" Background="AliceBlue" Content="" Height="30" Canvas.Left="30" Canvas.Top="163" />
+                <Label x:Name="Überschrift2" Content="Rangliste" Background="Gray"  Height="30" Canvas.Left="30" Canvas.Top="210" Width="80"/>
+                <Button x:Name="CbAktualisieren" Background="BlueViolet" Width="80" Content="Anzeigen" Height="35" Canvas.Left="862" Canvas.Top="87" Click="CbAktualisieren_Click"/>
+                <Label x:Name="LblAnzeigeÜberschrift"  Height="30" Content="Bestwert" Background="Gray"  Width="80"/>
+                <Label x:Name="LblAnzeige"  Height="30" Background="AliceBlue"  Width="80"/>
+                <Button x:Name="CbSpeichern" Background="BlueViolet" Content="Speichern" Height="35" Width="80" Click="CbSpeichern_Click" RenderTransformOrigin="0.358,1.954"/>
+                <Button Content="Ende" Height="30" Background="BlueViolet" Canvas.Left="862" Canvas.Top="187" Width="80" Click="Ende"/>
+            </StackPanel>
+            <Canvas x:Name="CanvasSpielerContainer"   />
+            <Canvas x:Name="CanvasBombenContainer"    />
+            <Canvas x:Name="CanvasWaffenContainer" />
+            <!--Insel-->
+            <Canvas x:Name="CanvasInselContainer"  />
+
+
+        </Canvas>
+        <!--Schließendes Canvas für Spielflaeche-->
+
+    </Grid>
+</Window>
